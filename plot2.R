@@ -31,6 +31,7 @@ hpc <- transform(hpc, Date=strptime(paste(V1, V2),
 #          remove if you don't need it
 Sys.setlocale(category="LC_TIME", locale="en_US.UTF-8")
 
+par(cex=0.75)
 with(hpc,
      plot(Date, Global_active_power, type="l",
           xlab="", ylab="Global Active Power (kilowatts)"))
