@@ -31,13 +31,12 @@ hpc <- transform(hpc, Date=strptime(paste(V1, V2),
 #          remove if you don't need it
 Sys.setlocale(category="LC_TIME", locale="en_US.UTF-8")
 par(cex=0.75)
-with(hpc,
-     {
-         plot(Date, Sub_metering_1, type="l", col="black",
-              xlab="", ylab="Energy sub metering")
-         points(Date, Sub_metering_2, type="l", col="red", xlab="", ylab="")
-         points(Date, Sub_metering_3, type="l", col="blue", xlab="", ylab="")
-     })
+with(hpc, {
+    plot(Date, Sub_metering_1, type="l", col="black",
+         xlab="", ylab="Energy sub metering")
+    points(Date, Sub_metering_2, type="l", col="red", xlab="", ylab="")
+    points(Date, Sub_metering_3, type="l", col="blue", xlab="", ylab="")
+})
 legend("topright", pch=NA, lwd=1, seg.len=3, text.width=48000, xjust=1,
        col=c("black", "red", "blue"),
        legend=c(" Sub_metering_1", " Sub_metering_2", " Sub_metering_3"))
