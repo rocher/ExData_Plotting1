@@ -27,7 +27,7 @@ hpc <- transform(hpc, Date=strptime(paste(V1, V2),
                                     format="%d/%m/%Y %H:%M:%S"))
 
 # 4. Make plot1
-par(mfrow=c(1, 1), cex=0.73, mar=c(5, 4, 2, 1)+0.1)
+par(mfrow=c(1, 1), mar=c(5, 4, 2, 1)+0.1)
 with(hpc,
      hist(Global_active_power, col="red",
           main="Global Active Power",

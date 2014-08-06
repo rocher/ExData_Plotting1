@@ -30,7 +30,7 @@ hpc <- transform(hpc, Date=strptime(paste(V1, V2),
 #    note: I had to set this locale in order to get day names in english
 #          remove if you don't need it
 Sys.setlocale(category="LC_TIME", locale="en_US.UTF-8")
-par(mfrow=c(2, 2), cex=0.618, mar=c(5, 4, 3, 1)+0.1)
+par(mfrow=c(2, 2), mar=c(5, 4, 4, 2)+0.1)
 with(hpc, {
     # top left
     plot(Date, Global_active_power, type="l", col="black",
@@ -45,7 +45,11 @@ with(hpc, {
          xlab="", ylab="Energy sub metering")
     points(Date, Sub_metering_2, type="l", col="red", xlab="", ylab="")
     points(Date, Sub_metering_3, type="l", col="blue", xlab="", ylab="")
-    legend("topright", pch=NA, lwd=1, seg.len=2, bty="n",
+    legend("topright", pch=NA, lwd=1, seg.len=1, bty="n",
+           # These params may depend on graphic device and font used, in this
+           # case an x11 device (and the image on the x11 device is different
+           # from the png file!)
+           y.intersp=0.5, text.width=90000,
            col=c("black", "red", "blue"),
            legend=c(" Sub_metering_1", " Sub_metering_2", " Sub_metering_3"))
 
